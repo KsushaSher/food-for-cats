@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 
 <head>
   <meta charset="UTF-8">
@@ -10,7 +10,64 @@
 </head>
 
 <body>
-  hello!
+  <header class="header wrapper">
+    <div class="header__wrapper">
+      <a href="#" class="header__logo"><img src="./assets/images/svg/logo.svg" alt="logo"></img></a>
+      <nav>
+        <ul class="header__navigation">
+          <li>ГЛАВНАЯ</li>
+          <li>КАТАЛОГ ПРОДУКЦИИ</li>
+          <li>ПОДБОР ПРОГРАММЫ</li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <section class="intro">
+      <div class="intro__content">
+        <h1 class="intro__title">Функциональное <br>
+          питание для котов</h1>
+        <p class="intro__subtitle">Занялся собой? Займись котом!</p>
+        <button class="intro__button">ПОДОБРАТЬ ПРОГРАММУ</button>
+      </div>
+      <div class="intro__background">
+        <img src="./assets/images/product.png" alt="product image" class="intro__product-image">
+      </div>
+    </section>
+    <section class="catalogs wrapper">
+      <div class="catalogs__card">
+        <div class="catalogs__wrapper-title">
+          <div class="catalogs__circle">
+            <img src="./assets/images/svg/cat-slim.svg" alt="cat slim" class="catalogs__cat-slim">
+          </div>
+          <div class=" catalogs__title">
+            похудение
+          </div>
+        </div>
+        <div class="catalogs__content">Ваш кот весит больше собаки и почти утратил способность лазить по деревьям?
+          Пора на диету! Cat Energy Slim поможет вашему питомцу сбросить лишний вес.</div>
+        <div class="catalogs__link"><a>каталог slim</a><img src="./assets/images/svg/icon_arrow.svg" alt="link arrow"
+            class="catalogs__arrow"></div>
+      </div>
+
+
+      <div class="catalogs__card">
+        <div class="catalogs__wrapper-title">
+          <div class="catalogs__circle">
+            <img src="./assets/images/svg/cat-pro.svg" alt="cat pro" class="catalogs__cat-pro">
+          </div>
+          <div class=" catalogs__title">
+            набор массы
+          </div>
+        </div>
+        <div class="catalogs__content">Заработать авторитет среди дворовых котов и даже собак? Серия Cat Energy Pro
+          поможет вашему коту нарастить необходимые мышцы!</div>
+        <div class="catalogs__link"><a>каталог pro</a><img src="./assets/images/svg/icon_arrow.svg" alt="link arrow"
+            class="catalogs__arrow"></div>
+      </div>
+      </div>
+    </section>
+  </main>
 </body>
 
 </html>

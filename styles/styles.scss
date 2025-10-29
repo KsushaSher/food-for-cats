@@ -1,5 +1,6 @@
 $color-basic-green: #68b738;
 $color-basic-green-2: #5eaa2f;
+$color-basic-white: #ffffff;
 $color-basic-grey: #f2f2f2;
 $color-special-grey: #cdcdcd;
 $color-special-grey-2: #ebebeb;
@@ -20,6 +21,13 @@ $mobile-width: 380px;
   font-display: swap;
 }
 @font-face {
+  font-family: "Oswald";
+  src: url("../assets/fonts/Oswald-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
   font-family: "Arial";
   src: url("../assets/fonts/ARIAL.woff2") format("woff2");
   font-weight: 400;
@@ -27,13 +35,192 @@ $mobile-width: 380px;
   font-display: swap;
 }
 
-html {
-  background-color: rgb(236, 237, 199);
+@mixin header-1 {
+  font-family: "Oswald", sans-serif;
+  font-size: 60px;
+  font-weight: 400;
+  line-height: 1.2;
+  font-style: normal;
+}
+@mixin header-2 {
+  font-family: "Oswald", sans-serif;
+  font-size: 36px;
+  font-weight: 300;
+  line-height: 1.2;
+  font-style: normal;
+  text-transform: uppercase;
+}
+@mixin header-3 {
+  font-family: "Oswald", sans-serif;
+  font-size: 30px;
+  font-weight: 300;
+  line-height: 1.2;
+  font-style: normal;
+  text-transform: uppercase;
+}
+@mixin header-4 {
+  font-family: "Oswald", sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1.2;
+  font-style: normal;
+  text-transform: uppercase;
+}
+@mixin base-text {
+  font-family: "Arial", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.6;
+  font-style: normal;
 }
 
+html {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+}
 body {
-  font-family: "Oswald", sans-serif;
+  margin: 0 auto;
 }
 h1 {
-  font-family: "Oswald", sans-serif;
+  @include header_1;
+  margin: 0;
 }
+.wrapper {
+  max-width: 1220px;
+  margin: 0 auto;
+}
+
+/* header start */
+.header {
+  position: relative;
+}
+.header__wrapper {
+  position: absolute;
+  top: 55px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: space-between;
+  z-index: 1;
+  width: 100%;
+}
+.header__navigation {
+  list-style: none;
+  display: flex;
+  gap: 34px;
+  padding: 0;
+  color: $color-basic-white;
+  @include header-4;
+}
+/* header end */
+
+/* intro start */
+.intro {
+  position: relative;
+  top: 0px;
+  left: calc(100vw / 2 - 610px);
+  display: flex;
+  justify-content: space-between;
+  width: calc(100vw - (100vw / 2 - 610px));
+}
+.intro__content {
+  padding-top: 225px;
+  padding-left: 80px;
+  max-width: 610px;
+  .intro__title {
+    padding-bottom: 40px;
+  }
+  .intro__subtitle {
+    padding-bottom: 52px;
+    margin: 0;
+    @include header-4;
+  }
+  .intro__button {
+    @include header-4;
+    color: $color-basic-white;
+    border: none;
+    margin: 0;
+    padding: 14px 26px;
+    background-color: $color-basic-green;
+  }
+}
+
+.intro__background {
+  position: relative;
+  background-image: url("../assets/images/background.jpg");
+  width: calc(100vw / 2);
+  height: 697px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-size: cover;
+  .intro__product-image {
+    position: absolute;
+    bottom: 54px;
+    left: -162px;
+    width: auto;
+    height: auto;
+  }
+}
+/* intro end */
+
+/* catalogs start */
+.catalogs {
+  display: flex;
+  justify-content: space-between;
+  gap: 80px;
+  margin-top: 80px;
+}
+
+.catalogs__card {
+  background-color: $color-basic-grey;
+  padding: 54px;
+  width: 100%;
+}
+.catalogs__wrapper-title {
+  display: flex;
+  gap: 62px;
+  align-items: center;
+
+  .catalogs__circle {
+    position: relative;
+    background-color: $color-basic-green;
+    width: 100px;
+    height: 100px;
+    border-radius: 100%;
+
+    .catalogs__cat-slim {
+      position: absolute;
+      bottom: 8px;
+      left: 12px;
+    }
+    .catalogs__cat-pro {
+      position: absolute;
+      bottom: 22px;
+      left: -18px;
+    }
+  }
+
+  .catalogs__title {
+    @include header-2;
+  }
+}
+.catalogs__content {
+  padding-top: 40px;
+  @include base-text;
+}
+.catalogs__link {
+  padding-top: 28px;
+  display: flex;
+  gap: 28px;
+  @include header-4;
+}
+.catalogs__arrow {
+}
+
+/* catalogs end */
