@@ -73,6 +73,13 @@ $mobile-width: 380px;
   line-height: 1.6;
   font-style: normal;
 }
+@mixin huge {
+  font-family: "Oswald", sans-serif;
+  font-size: 280px;
+  font-weight: 400;
+  line-height: 0.7;
+  font-style: normal;
+}
 
 html {
   box-sizing: border-box;
@@ -220,7 +227,42 @@ h1 {
   gap: 28px;
   @include header-4;
 }
-.catalogs__arrow {
+/* catalogs end */
+
+/* principles start */
+.principles__title {
+  @include header-1;
 }
 
-/* catalogs end */
+.principles__wrapper {
+  display: flex;
+  gap: 72px;
+}
+.principles__card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 31px;
+}
+.principles__icon-wrapper {
+  width: 80px;
+  height: 80px;
+  background-color: $color-basic-green;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.principles__content {
+  @include base-text;
+}
+.principles__number {
+  position: absolute;
+  top: 0;
+  right: 0;
+  @include huge;
+  color: $color-basic-grey;
+  z-index: -10;
+}
+
+/* principles end */
