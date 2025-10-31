@@ -3,8 +3,9 @@ $color-basic-green-2: #5eaa2f;
 $color-basic-white: #ffffff;
 $color-basic-grey: #f2f2f2;
 $color-special-grey: #cdcdcd;
+$color-special-grey-1: #dcdcdc;
 $color-special-grey-2: #ebebeb;
-$color-special-grey-2: #666666;
+$color-special-grey-3: #666666;
 $color-special-dark-grey: #444444;
 $color-special-dark-grey-2: #000000;
 $color-status-error: #ff8282;
@@ -53,7 +54,7 @@ $mobile-width: 380px;
 @mixin header-3 {
   font-family: "Oswald", sans-serif;
   font-size: 30px;
-  font-weight: 300;
+  font-weight: 400;
   line-height: 1.2;
   font-style: normal;
   text-transform: uppercase;
@@ -72,6 +73,7 @@ $mobile-width: 380px;
   font-weight: 400;
   line-height: 1.6;
   font-style: normal;
+  color: $color-special-dark-grey;
 }
 @mixin huge {
   font-family: "Oswald", sans-serif;
@@ -96,6 +98,9 @@ body {
 }
 h1 {
   @include header_1;
+  margin: 0;
+}
+p {
   margin: 0;
 }
 .wrapper {
@@ -232,11 +237,13 @@ h1 {
 /* principles start */
 .principles__title {
   @include header-1;
+  padding-top: 72px;
 }
 
 .principles__wrapper {
   display: flex;
   gap: 72px;
+  padding-top: 72px;
 }
 .principles__card {
   position: relative;
@@ -252,7 +259,6 @@ h1 {
   justify-content: center;
   align-items: center;
 }
-
 .principles__content {
   @include base-text;
 }
@@ -264,5 +270,178 @@ h1 {
   color: $color-basic-grey;
   z-index: -10;
 }
-
 /* principles end */
+
+/* example start */
+.example {
+  position: relative;
+}
+.example__wrapper {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 75px;
+}
+
+.example__content {
+  width: 436px; // убрать
+}
+.example__title {
+  @include header-1;
+  padding-top: 138px;
+}
+.example__text {
+  padding-top: 146px;
+  @include base-text;
+}
+.example__indicators {
+  display: flex;
+  gap: 42px;
+}
+.example__indicator {
+  float: left;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid $color-special-grey;
+  width: 162px;
+  height: 74px;
+  border-radius: 3px;
+  margin: 70px 0 0 0;
+
+  .example__legend {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 50%);
+    background-color: $color-basic-grey;
+    padding: 0 4px;
+    white-space: nowrap;
+    @include base-text;
+  }
+
+  .example__label {
+    @include header-3;
+  }
+}
+.example__cost {
+  padding-top: 56px;
+  @include header-4;
+  display: flex;
+  justify-content: space-between;
+
+  .example__price {
+    padding-right: 108px;
+  }
+}
+.example__scrollbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+
+  .example__scrollbar-text {
+    @include header-4;
+    border-bottom: 1px dotted $color-special-grey-1;
+  }
+
+  /* удалить*/
+  .example__strip {
+    width: 428px;
+    height: 6px;
+    border-radius: 3px;
+    background-color: $color-special-grey-1;
+  }
+}
+.example__comparison {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: self-end;
+}
+.example__range {
+  width: 428px;
+  height: 6px;
+  border: none;
+  appearance: none;
+  height: 4px;
+  background: $color-special-grey-1;
+  border-radius: 3px;
+  outline: none;
+  cursor: pointer;
+}
+.example__background {
+  position: absolute;
+  background-color: $color-basic-grey;
+  width: 100vw;
+  height: 462px;
+  z-index: -10;
+  left: 0;
+  bottom: 0px;
+}
+/* example end */
+
+/* location start */
+.location {
+  position: relative;
+  height: 400px;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.location__map {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(183, 153, 153);
+  z-index: -10;
+}
+.location__wrapper {
+  width: 100%;
+}
+.location__content {
+  background-color: $color-basic-white;
+  padding: 0 76px;
+  width: 570px;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.location__title {
+  @include header-4;
+  width: 50%;
+}
+.location__address {
+  @include base-text;
+  width: 50%;
+}
+/* location end */
+
+/* footer start */
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 150px;
+}
+.footer__media {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+}
+.footer__html-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 22px;
+}
+.footer__html-logo-text {
+  @include base-text;
+}
+
+/* footer end */
