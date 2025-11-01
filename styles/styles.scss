@@ -339,46 +339,100 @@ p {
   justify-content: center;
   align-items: center;
   gap: 20px;
-
-  .example__scrollbar-text {
-    @include header-4;
-    border-bottom: 1px dotted $color-special-grey-1;
-  }
-
-  /* удалить*/
-  .example__strip {
-    width: 428px;
-    height: 6px;
-    border-radius: 3px;
-    background-color: $color-special-grey-1;
-  }
+}
+.example__before-button,
+.example__after-button {
+  @include header-4;
+  cursor: pointer;
+  border-bottom: 1px dotted $color-special-grey-1;
 }
 .example__comparison {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: self-end;
+  align-items: center;
 }
-.example__range {
+.example__image-wrapper {
+  position: relative;
+  height: 536px;
+  width: 730px;
+
+  .example__before-cat-crop {
+    width: 365px;
+    height: 536px;
+    overflow: hidden;
+    position: absolute;
+    left: 0;
+    top: 0;
+    .example__before-cat {
+      height: 536px;
+      width: 730px;
+      object-fit: cover;
+    }
+  }
+
+  .example__after-cat-crop {
+    width: 365px;
+    height: 536px;
+    overflow: hidden;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: -5;
+    .example__after-cat {
+      height: 536px;
+      width: 730px;
+      z-index: -5;
+      object-fit: cover;
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+  }
+}
+.example__scrollbar-track {
+  position: relative;
   width: 428px;
   height: 6px;
-  border: none;
-  appearance: none;
-  height: 4px;
-  background: $color-special-grey-1;
   border-radius: 3px;
-  outline: none;
   cursor: pointer;
+  background-color: $color-special-grey-1;
+
+  .example__scrollbar-thumb {
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    top: 50%;
+    left: 50%;
+    border: 1px solid $color-special-grey-1;
+    border-radius: 16px;
+    box-shadow: 0px 2px 2px $color-special-grey-1;
+    transform: translate(-50%, -50%);
+    background-color: $color-basic-white;
+    cursor: pointer;
+    &::after {
+      content: "";
+      width: 8px;
+      height: 8px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      border-radius: 4px;
+      transform: translate(-50%, -50%);
+      background-color: $color-basic-green;
+    }
+  }
 }
 .example__background {
   position: absolute;
-  background-color: $color-basic-grey;
   width: 100vw;
   height: 462px;
-  z-index: -10;
   left: 0;
   bottom: 0px;
+  background-color: $color-basic-grey;
+  z-index: -10;
 }
+
 /* example end */
 
 /* location start */
@@ -403,13 +457,13 @@ p {
   width: 100%;
 }
 .location__content {
-  background-color: $color-basic-white;
-  padding: 0 76px;
   width: 570px;
   height: 200px;
+  padding: 0 76px;
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: $color-basic-white;
 }
 .location__title {
   @include header-4;

@@ -125,14 +125,25 @@
           </div>
         </div>
         <div class="example__comparison">
-          <div class="example__image-wrapper"><img src="./assets/images/before-desktop.png"></div>
+          <div class="example__image-wrapper">
+            <div class="example__before-cat-crop">
+              <img src="./assets/images/before-desktop.png" alt="fat cat" class="example__before-cat">
+            </div>
+            <div class="example__after-cat-crop">
+              <img src="./assets/images/after-desktop.png" alt="thin cat" class="example__after-cat">
+            </div>
+
+          </div>
           <div class="example__scrollbar">
-            <div class="example__scrollbar-text">было</div>
-            <input type="range" min="0" max="100" value="50" class="example__range">
-            <div class="example__scrollbar-text">стало</div>
+            <div class="example__before-button">было</div>
+            <div class="example__scrollbar-track">
+              <div class="example__scrollbar-thumb"></div>
+            </div>
+            <div class="example__after-button">стало</div>
           </div>
         </div>
       </div>
+      <!-- <input type="range" class="example__slider" min="0" max="100" value="50" step="1"> -->
       <div class="example__background"></div>
     </section>
     <section class="location">

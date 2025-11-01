@@ -1,4 +1,3 @@
-@charset "UTF-8";
 @font-face {
   font-family: "Oswald";
   src: url("../assets/fonts/Oswald-Regular.woff2") format("woff2");
@@ -364,52 +363,104 @@ p {
   align-items: center;
   gap: 20px;
 }
-.example__scrollbar .example__scrollbar-text {
+
+.example__before-button,
+.example__after-button {
   font-family: "Oswald", sans-serif;
   font-size: 20px;
   font-weight: 400;
   line-height: 1.2;
   font-style: normal;
   text-transform: uppercase;
+  cursor: pointer;
   border-bottom: 1px dotted #dcdcdc;
-}
-.example__scrollbar {
-  /* удалить*/
-}
-.example__scrollbar .example__strip {
-  width: 428px;
-  height: 6px;
-  border-radius: 3px;
-  background-color: #dcdcdc;
 }
 
 .example__comparison {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: self-end;
+  align-items: center;
 }
 
-.example__range {
+.example__image-wrapper {
+  position: relative;
+  height: 536px;
+  width: 730px;
+}
+.example__image-wrapper .example__before-cat-crop {
+  width: 365px;
+  height: 536px;
+  overflow: hidden;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.example__image-wrapper .example__before-cat-crop .example__before-cat {
+  height: 536px;
+  width: 730px;
+  object-fit: cover;
+}
+.example__image-wrapper .example__after-cat-crop {
+  width: 365px;
+  height: 536px;
+  overflow: hidden;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: -5;
+}
+.example__image-wrapper .example__after-cat-crop .example__after-cat {
+  height: 536px;
+  width: 730px;
+  z-index: -5;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.example__scrollbar-track {
+  position: relative;
   width: 428px;
   height: 6px;
-  border: none;
-  appearance: none;
-  height: 4px;
-  background: #dcdcdc;
   border-radius: 3px;
-  outline: none;
   cursor: pointer;
+  background-color: #dcdcdc;
+}
+.example__scrollbar-track .example__scrollbar-thumb {
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  top: 50%;
+  left: 50%;
+  border: 1px solid #dcdcdc;
+  border-radius: 16px;
+  box-shadow: 0px 2px 2px #dcdcdc;
+  transform: translate(-50%, -50%);
+  background-color: #ffffff;
+  cursor: pointer;
+}
+.example__scrollbar-track .example__scrollbar-thumb::after {
+  content: "";
+  width: 8px;
+  height: 8px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border-radius: 4px;
+  transform: translate(-50%, -50%);
+  background-color: #68b738;
 }
 
 .example__background {
   position: absolute;
-  background-color: #f2f2f2;
   width: 100vw;
   height: 462px;
-  z-index: -10;
   left: 0;
   bottom: 0px;
+  background-color: #f2f2f2;
+  z-index: -10;
 }
 
 /* example end */
@@ -438,13 +489,13 @@ p {
 }
 
 .location__content {
-  background-color: #ffffff;
-  padding: 0 76px;
   width: 570px;
   height: 200px;
+  padding: 0 76px;
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: #ffffff;
 }
 
 .location__title {
