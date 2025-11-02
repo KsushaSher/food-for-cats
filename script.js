@@ -48,3 +48,40 @@ document.addEventListener("mouseup", () => {
 });
 
 document.addEventListener("mousemove", calcPosition);
+
+//location
+
+async function initMap() {
+  await ymaps3.ready;
+
+  const { YMap, YMapDefaultSchemeLayer, YMapDefaultFeaturesLayer } = ymaps3;
+  ymaps3.import.registerCdn("https://cdn.jsdelivr.net/npm/{package}", [
+    "@yandex/ymaps3-default-ui-theme@0.0.19",
+  ]);
+  const { YMapDefaultMarker } = await ymaps3.import("@yandex/ymaps3-default-ui-theme");
+
+  const map = new YMap(
+    document.querySelector("#map"),
+    {
+      location: {
+        center: [30.321366, 59.938491],
+        zoom: 16,
+      },
+      behaviors: ["drag", "pinchZoom", "mouseTilt"],
+    },
+    [new YMapDefaultFeaturesLayer({})]
+  );
+
+  map.setBehaviors(["drag", "pinchZoom"]);
+  map.addChild(new YMapDefaultSchemeLayer());
+
+  const marker = new YMapDefaultMarker({
+    coordinates: [30.323037, 59.938631],
+    title: "Hello World!",
+    subtitle: "kind and bright",
+    color: "blue",
+  });
+  map.addChild(marker);
+}
+
+initMap();

@@ -380,11 +380,12 @@ p {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: flex-end;
 }
 
 .example__image-wrapper {
   position: relative;
+  right: -81px;
   height: 536px;
   width: 730px;
 }
@@ -478,10 +479,16 @@ p {
   position: absolute;
   top: 0px;
   left: 0px;
-  width: 100%;
+  width: 100vw;
   height: 100%;
   background-color: rgb(183, 153, 153);
   z-index: -10;
+}
+
+.location__marker {
+  position: relative;
+  width: 106px;
+  height: 106px;
 }
 
 .location__wrapper {
@@ -495,7 +502,7 @@ p {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #ffffff;
+  background-color: rgba(202, 193, 205, 0.5);
 }
 
 .location__title {
