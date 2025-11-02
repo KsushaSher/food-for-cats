@@ -455,9 +455,9 @@ p {
   z-index: -10;
 }
 .location__marker {
-  position: relative;
   width: 106px;
   height: 106px;
+  transform: translate(-50%, -100%);
 }
 .location__wrapper {
   width: 100%;
@@ -469,7 +469,7 @@ p {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: rgba(202, 193, 205, 0.5);
+  background-color: $color-basic-white;
 }
 .location__title {
   @include header-4;

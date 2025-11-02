@@ -54,33 +54,30 @@ document.addEventListener("mousemove", calcPosition);
 async function initMap() {
   await ymaps3.ready;
 
-  const { YMap, YMapDefaultSchemeLayer, YMapDefaultFeaturesLayer } = ymaps3;
-  ymaps3.import.registerCdn("https://cdn.jsdelivr.net/npm/{package}", [
-    "@yandex/ymaps3-default-ui-theme@0.0.19",
-  ]);
-  const { YMapDefaultMarker } = await ymaps3.import("@yandex/ymaps3-default-ui-theme");
+  const { YMap, YMapDefaultSchemeLayer, YMapDefaultFeaturesLayer, YMapMarker } = ymaps3;
 
-  const map = new YMap(
-    document.querySelector("#map"),
-    {
-      location: {
-        center: [30.321366, 59.938491],
-        zoom: 16,
-      },
-      behaviors: ["drag", "pinchZoom", "mouseTilt"],
-    },
-    [new YMapDefaultFeaturesLayer({})]
-  );
+  const map = new YMap(document.querySelector("#map"), {
+    location: { center: [30.319, 59.938931], zoom: 16.3 },
+    behaviors: ["drag", "scrollZoom", "pinchZoom", "mouseTilt"],
+  });
 
-  map.setBehaviors(["drag", "pinchZoom"]);
   map.addChild(new YMapDefaultSchemeLayer());
 
-  const marker = new YMapDefaultMarker({
-    coordinates: [30.323037, 59.938631],
-    title: "Hello World!",
-    subtitle: "kind and bright",
-    color: "blue",
-  });
+  const featuresLayer = new YMapDefaultFeaturesLayer();
+  map.addChild(featuresLayer);
+
+  const markerContent = document.createElement("div");
+  markerContent.classList.add("location__marker");
+  markerContent.innerHTML = `<img src="./assets/images/svg/map-pin.svg" alt="marker">`;
+
+  const marker = new YMapMarker(
+    {
+      coordinates: [30.323037, 59.938631],
+      dataSource: featuresLayer,
+    },
+    markerContent
+  );
+
   map.addChild(marker);
 }
 
