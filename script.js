@@ -1,3 +1,4 @@
+//swiper desktop
 const track = document.querySelector(".example__scrollbar-track");
 const thumb = document.querySelector(".example__scrollbar-thumb");
 const beforeCrop = document.querySelector(".example__before-cat-crop");
@@ -49,8 +50,53 @@ document.addEventListener("mouseup", () => {
 
 document.addEventListener("mousemove", calcPosition);
 
-//location
+// swiper mobile
+const imagesM = document.querySelector(".example__image-wrapper-mobile");
+const handlerM = document.querySelector(".example__scrollbar-thumb-mobile");
+const beforeButtonM = document.querySelector(".example__before-button-mobile");
+const afterButtonM = document.querySelector(".example__after-button-mobile");
 
+let startX = 0;
+let endX = 0;
+
+beforeButtonM?.addEventListener("click", () => {
+  imagesM.classList.remove("example__image-wrapper-mobile-end");
+  handlerM.classList.remove("example__scrollbar-thumb-mobile-end");
+});
+afterButtonM.addEventListener("click", () => {
+  imagesM.classList.add("example__image-wrapper-mobile-end");
+  handlerM.classList.add("example__scrollbar-thumb-mobile-end");
+});
+
+imagesM.addEventListener("touchstart", (e) => {
+  e.preventDefault();
+  startX = e.touches[0].clientX;
+});
+
+imagesM.addEventListener("touchmove", (e) => {
+  e.preventDefault();
+  endX = e.touches[0].clientX;
+});
+
+imagesM.addEventListener("touchend", (e) => {
+  e.preventDefault();
+  const swipeDistance = endX - startX;
+
+  if (swipeDistance < -10) {
+    imagesM.classList.add("example__image-wrapper-mobile-end");
+    handlerM.classList.add("example__scrollbar-thumb-mobile-end");
+  }
+
+  if (swipeDistance > 10) {
+    imagesM.classList.remove("example__image-wrapper-mobile-end");
+    handlerM.classList.remove("example__scrollbar-thumb-mobile-end");
+  }
+
+  startX = 0;
+  endX = 0;
+});
+
+//location
 async function initMap() {
   await ymaps3.ready;
 
