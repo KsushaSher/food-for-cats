@@ -1,11 +1,8 @@
 {
   "devDependencies": {
-    "sass": "^1.93.2",
-    "http-server": "14.1.1"
+    "sass": "^1.93.2"
   },
   "scripts": {
-    "style": "sass styles/styles.scss styles/styles.css --watch",
-    "start": "npx http-server ."
+    "style": "sass styles/styles.scss styles/styles.css --watch"
   }
 }
-
