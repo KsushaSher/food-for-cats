@@ -16,9 +16,9 @@
       <a href="#" class="header__logo"><img src="./assets/images/svg/logo.svg" alt="logo"></img></a>
       <nav>
         <ul class="header__navigation">
-          <li>ГЛАВНАЯ</li>
-          <li>КАТАЛОГ ПРОДУКЦИИ</li>
-          <li>ПОДБОР ПРОГРАММЫ</li>
+          <li class="header__page active-page">ГЛАВНАЯ</li>
+          <li class="header__page">КАТАЛОГ ПРОДУКЦИИ</li>
+          <li class="header__page">ПОДБОР ПРОГРАММЫ</li>
         </ul>
       </nav>
     </div>
@@ -37,27 +37,28 @@
     </section>
     <section class="catalogs wrapper">
       <div class="catalogs__card">
-        <div class="catalogs__wrapper-title">
-          <div class="catalogs__circle">
-            <img src="./assets/images/svg/cat-slim.svg" alt="cat slim" class="catalogs__cat-slim">
-          </div>
-          <div class=" catalogs__title">
-            похудение
-          </div>
+        <div class="catalogs__circle">
+          <img src="./assets/images/svg/cat-slim.svg" alt="cat slim" class="catalogs__cat-slim">
         </div>
+
+        <div class=" catalogs__title">
+          похудение
+        </div>
+
         <div class="catalogs__content">Ваш кот весит больше собаки и почти утратил способность лазить по деревьям?
           Пора на диету! Cat Energy Slim поможет вашему питомцу сбросить лишний вес.</div>
+
         <div class="catalogs__link"><a>каталог slim</a><img src="./assets/images/svg/icon_arrow.svg" alt="link arrow"
-            class="catalogs__arrow"></div>
+            class="catalogs__link-icon">
+        </div>
+
       </div>
       <div class="catalogs__card">
-        <div class="catalogs__wrapper-title">
-          <div class="catalogs__circle">
-            <img src="./assets/images/svg/cat-pro.svg" alt="cat pro" class="catalogs__cat-pro">
-          </div>
-          <div class=" catalogs__title">
-            набор массы
-          </div>
+        <div class="catalogs__circle">
+          <img src="./assets/images/svg/cat-pro.svg" alt="cat pro" class="catalogs__cat-pro">
+        </div>
+        <div class=" catalogs__title">
+          набор массы
         </div>
         <div class="catalogs__content">Заработать авторитет среди дворовых котов и даже собак? Серия Cat Energy Pro
           поможет вашему коту нарастить необходимые мышцы!</div>
@@ -110,19 +111,21 @@
           <div class="example__text">Борис сбросил 5 кг за 2 месяца, просто заменив свой обычный корм на Cat Energy
             Slim. Отличный результат без изнуряющих тренировок! При этом он не менял своих привычек и по-прежнему спит
             по 16 часов в день.</div>
-          <div class="example__indicators">
-            <fieldset class="example__indicator">
-              <legend class="example__legend">снижение веса</legend>
-              <label class="example__label">5 кг</label>
-            </fieldset>
-            <fieldset class="example__indicator">
-              <legend class="example__legend">затрачено времени</legend>
-              <label class="example__label">60 ДНЕЙ</label>
-            </fieldset>
-          </div>
-          <div class="example__cost">
-            <div>Затраты на питание:</div>
-            <div class="example__price">15 000 РУБ.</div>
+          <div class="example__data">
+            <div class="example__indicators">
+              <fieldset class="example__indicator">
+                <legend class="example__legend">снижение веса</legend>
+                <label class="example__label">5 кг</label>
+              </fieldset>
+              <fieldset class="example__indicator">
+                <legend class="example__legend">затрачено времени</legend>
+                <label class="example__label">60 ДНЕЙ</label>
+              </fieldset>
+            </div>
+            <div class="example__cost">
+              <div>Затраты на питание:</div>
+              <div class="example__price">15 000 РУБ.</div>
+            </div>
           </div>
         </div>
         <div class="example__comparison">
@@ -147,7 +150,6 @@
       <div class="example__background"></div>
     </section>
     <section class="location">
-      <div id="map" class="location__map"></div>
       <div class="location__wrapper wrapper">
         <div class="location__content">
           <div class="location__title">приглашаем к сотрудничеству<br><br>дилеров!
@@ -156,6 +158,7 @@
           </div>
         </div>
       </div>
+      <div id="map" class="location__map"></div>
     </section>
     <footer class="footer wrapper">
       <img src="./assets/images/svg/footer-logo.svg" alt="footer logo" class="footer__logo" />
