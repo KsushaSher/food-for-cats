@@ -13,14 +13,19 @@
 <body>
   <header class="header wrapper">
     <div class="header__wrapper">
-      <a href="#" class="header__logo"><img src="./assets/images/svg/logo.svg" alt="logo"></img></a>
-      <nav>
+      <a href="#" class="header__logo">
+        <img src="./assets/images/svg/logo.svg" alt="logo" class="header__logo-img-desktop" />
+        <img src="./assets/images/svg/logo-mobile.svg" alt="logo" class="header__logo-img-mobile" />
+      </a>
+      <img src="./assets/images/svg/logo-mobile-text.svg" alt="logo" class="header__logo-text-mobile" />
+      <nav class="header__navigation-wrapper">
         <ul class="header__navigation">
           <li class="header__page active-page">ГЛАВНАЯ</li>
           <li class="header__page">КАТАЛОГ ПРОДУКЦИИ</li>
           <li class="header__page">ПОДБОР ПРОГРАММЫ</li>
         </ul>
       </nav>
+      <div class="header__burger"></div>
     </div>
   </header>
   <main>
@@ -146,6 +151,24 @@
             <div class="example__after-button">стало</div>
           </div>
         </div>
+        <div class="example__comparison-mobile">
+          <div class="example__image-wrapper-mobile">
+            <div class="example__before-cat-crop-mobile">
+              <img src="./assets/images/before-desktop.png" alt="fat cat" class="example__before-cat-mobile">
+            </div>
+            <div class="example__after-cat-crop-mobile">
+              <img src="./assets/images/after-desktop.png" alt="thin cat" class="example__after-cat-mobile">
+            </div>
+
+          </div>
+          <div class="example__scrollbar-mobile">
+            <div class="example__before-button-mobile">было</div>
+            <div class="example__scrollbar-track-mobile">
+              <div class="example__scrollbar-thumb-mobile"></div>
+            </div>
+            <div class="example__after-button-mobile">стало</div>
+          </div>
+        </div>
       </div>
       <div class="example__background"></div>
     </section>
@@ -163,9 +186,9 @@
     <footer class="footer wrapper">
       <img src="./assets/images/svg/footer-logo.svg" alt="footer logo" class="footer__logo" />
       <div class="footer__media">
-        <img src="./assets/images/svg/icon_vkontakte.svg" alt="vk logo" />
-        <img src="./assets/images/svg/icon_instagram.svg" alt="instagram logo" />
-        <img src="./assets/images/svg/icon_facebook.svg" alt="facebook logo" />
+        <img src="./assets/images/svg/icon_vkontakte.svg" alt="vk logo" class="footer__vk" />
+        <img src="./assets/images/svg/icon_instagram.svg" alt="instagram logo" class="footer__instagram" />
+        <img src="./assets/images/svg/icon_facebook.svg" alt="facebook logo" class="footer__facebook" />
       </div>
       <div class="footer__html-logo">
         <div class="footer__html-logo-text">HTML Academy</div>
