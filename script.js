@@ -105,11 +105,14 @@ async function initMap() {
   let markerSize;
 
   if (window.screen.width < 767) {
-    centerMap = [30.323037, 59.938631];
     markerSize = 53;
   } else {
-    centerMap = [30.319, 59.938931];
     markerSize = 106;
+  }
+  if (window.screen.width < 1249) {
+    centerMap = [30.323037, 59.938631];
+  } else {
+    centerMap = [30.319, 59.938931];
   }
 
   const map = new YMap(document.querySelector("#map"), {

@@ -411,6 +411,7 @@ button::-moz-focus-inner {
     @include header-4-mob2;
     width: calc(100% - 40px);
     margin: 220px 20px 22px;
+    text-align: center;
   }
 }
 .intro__background {
@@ -990,6 +991,7 @@ button::-moz-focus-inner {
   justify-content: flex-start;
   @media (max-width: 1249px) {
     flex-direction: column;
+    height: auto;
   }
 }
 .location__map {
@@ -1001,6 +1003,7 @@ button::-moz-focus-inner {
   z-index: -10;
   @media (max-width: 1249px) {
     position: relative;
+    height: 400px;
   }
   @media (max-width: 767px) {
     height: 362px;
@@ -1050,7 +1053,6 @@ button::-moz-focus-inner {
     padding-top: 0;
   }
 }
-
 .location__address-wrapper {
   display: flex;
   flex-direction: column;
@@ -1061,7 +1063,6 @@ button::-moz-focus-inner {
     align-items: flex-start;
   }
 }
-
 .location__address,
 .location__address-line2,
 .location__address-line3 {
@@ -1073,7 +1074,6 @@ button::-moz-focus-inner {
     text-align: left;
   }
 }
-
 .location__address-line3 {
   padding-top: 22px;
   @media (max-width: 767px) {
@@ -1087,6 +1087,7 @@ button::-moz-focus-inner {
   background-color: $color-basic-grey;
 }
 .footer__wrapper {
+  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;

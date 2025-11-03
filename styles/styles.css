@@ -389,6 +389,7 @@ button::-moz-focus-inner {
     text-transform: uppercase;
     width: calc(100% - 40px);
     margin: 220px 20px 22px;
+    text-align: center;
   }
 }
 
@@ -1194,6 +1195,7 @@ button::-moz-focus-inner {
 @media (max-width: 1249px) {
   .location {
     flex-direction: column;
+    height: auto;
   }
 }
 
@@ -1208,6 +1210,7 @@ button::-moz-focus-inner {
 @media (max-width: 1249px) {
   .location__map {
     position: relative;
+    height: 400px;
   }
 }
 @media (max-width: 767px) {
@@ -1346,6 +1349,7 @@ button::-moz-focus-inner {
 }
 
 .footer__wrapper {
+  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
