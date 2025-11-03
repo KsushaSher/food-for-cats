@@ -96,14 +96,24 @@ imagesM.addEventListener("touchend", (e) => {
   endX = 0;
 });
 
-//location
+//map
 async function initMap() {
   await ymaps3.ready;
 
   const { YMap, YMapDefaultSchemeLayer, YMapDefaultFeaturesLayer, YMapMarker } = ymaps3;
+  let centerMap;
+  let markerSize;
+
+  if (window.screen.width < 767) {
+    centerMap = [30.323037, 59.938631];
+    markerSize = 53;
+  } else {
+    centerMap = [30.319, 59.938931];
+    markerSize = 106;
+  }
 
   const map = new YMap(document.querySelector("#map"), {
-    location: { center: [30.319, 59.938931], zoom: 16.3 },
+    location: { center: centerMap, zoom: 16.3 },
     behaviors: ["drag", "scrollZoom", "pinchZoom", "mouseTilt"],
   });
 
@@ -114,7 +124,7 @@ async function initMap() {
 
   const markerContent = document.createElement("div");
   markerContent.classList.add("location__marker");
-  markerContent.innerHTML = `<img src="./assets/images/svg/map-pin.svg" alt="marker">`;
+  markerContent.innerHTML = `<img src="./assets/images/svg/map-pin.svg" style="width: ${markerSize}px; height: ${markerSize}px" alt="marker">`;
 
   const marker = new YMapMarker(
     {

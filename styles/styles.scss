@@ -10,10 +10,6 @@ $color-special-dark-grey: #444444;
 $color-special-dark-grey-2: #000000;
 $color-status-error: #ff8282;
 
-$content-width: 1276px;
-$tablet-width: 768px;
-$mobile-width: 380px;
-
 @font-face {
   font-family: "Oswald";
   src: url("../assets/fonts/Oswald-Regular.woff2") format("woff2");
@@ -35,7 +31,6 @@ $mobile-width: 380px;
   font-style: normal;
   font-display: swap;
 }
-
 @mixin header-1 {
   font-family: "Oswald", sans-serif;
   font-size: 60px;
@@ -75,23 +70,7 @@ $mobile-width: 380px;
   font-style: normal;
   text-transform: uppercase;
 }
-@mixin header-6 {
-  font-family: "Oswald", sans-serif;
-  font-size: 24px;
-  font-weight: 400;
-  line-height: 1.2;
-  font-style: normal;
-  text-transform: uppercase;
-}
-@mixin header-7 {
-  font-family: "Oswald", sans-serif;
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 1.2;
-  font-style: normal;
-  text-transform: uppercase;
-}
-@mixin header-8 {
+@mixin header-1-mob {
   font-family: "Oswald", sans-serif;
   font-size: 36px;
   font-weight: 400;
@@ -99,7 +78,23 @@ $mobile-width: 380px;
   font-style: normal;
   text-transform: math-auto;
 }
-@mixin header-9 {
+@mixin header-2-mob {
+  font-family: "Oswald", sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 1.2;
+  font-style: normal;
+  text-transform: uppercase;
+}
+@mixin header-4-mob {
+  font-family: "Oswald", sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.2;
+  font-style: normal;
+  text-transform: uppercase;
+}
+@mixin header-4-mob2 {
   font-family: "Oswald", sans-serif;
   font-size: 14px;
   font-weight: 400;
@@ -107,16 +102,15 @@ $mobile-width: 380px;
   font-style: normal;
   text-transform: uppercase;
 }
-
 @mixin base-text {
   font-family: "Arial", sans-serif;
   font-size: 16px;
   font-weight: 400;
-  line-height: 1.6;
+  line-height: 1.4;
   font-style: normal;
   color: $color-special-dark-grey;
 }
-@mixin base-text-2 {
+@mixin base-text-mob1 {
   font-family: "Arial", sans-serif;
   font-size: 14px;
   font-weight: 400;
@@ -124,7 +118,7 @@ $mobile-width: 380px;
   font-style: normal;
   color: $color-special-dark-grey;
 }
-@mixin base-text-3 {
+@mixin base-text-mob2 {
   font-family: "Arial", sans-serif;
   font-size: 12px;
   font-weight: 300;
@@ -139,7 +133,6 @@ $mobile-width: 380px;
   line-height: 0.7;
   font-style: normal;
 }
-
 html {
   box-sizing: border-box;
   margin: 0;
@@ -154,19 +147,43 @@ body {
   margin: 0 auto;
   overflow-x: hidden;
 }
-h1 {
-  @include header_1;
+a {
+  text-decoration: none;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   margin: 0;
-  @media (max-width: 767px) {
-    @include header-8;
-  }
 }
 p {
   margin: 0;
 }
+button {
+  all: unset;
+  box-sizing: border-box;
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: none;
+  color: inherit;
+  font: inherit;
+  text-align: inherit;
+  cursor: pointer;
+}
+button:focus {
+  outline: none;
+}
+button::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
 .wrapper {
   max-width: 1220px;
-  padding: 0 auto;
+  margin: 0 auto;
   @media (max-width: 1249px) {
     padding: 0 30px;
   }
@@ -174,7 +191,6 @@ p {
     padding: 0 20px;
   }
 }
-
 /* header start */
 .header {
   position: relative;
@@ -283,11 +299,24 @@ p {
     align-items: center;
     height: 46px;
     text-align: center;
+    color: $color-basic-white;
+    @media (max-width: 1249px) {
+      color: $color-special-dark-grey-2;
+    }
   }
   .active-page {
-    border-bottom: 2px solid $color-basic-white;
-    @media (max-width: 1249px) {
-      border-bottom: 2px solid $color-basic-green;
+    position: relative;
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 2px;
+      background-color: $color-basic-white;
+      @media (max-width: 1249px) {
+        background-color: $color-basic-green;
+      }
     }
   }
   @media (max-width: 1249px) {
@@ -315,7 +344,6 @@ p {
     transform: translateX(0);
   }
 }
-
 /* header end */
 
 /* intro start */
@@ -353,28 +381,22 @@ p {
     padding-top: 93px;
   }
 }
-.intro__title {
-  padding-bottom: 40px;
+.intro__title-wrapper {
+  @include header-1;
   @media (max-width: 767px) {
-    @include header-2;
     text-align: center;
     text-transform: none;
     width: 100%;
-    @media (max-width: 767px) {
-      @include header-8;
-      padding-bottom: 25px;
-    }
+    @include header-1-mob;
   }
 }
 .intro__subtitle {
-  padding-bottom: 52px;
+  padding: 40px 0 52px;
   margin: 0;
   @include header-4;
   @media (max-width: 767px) {
-    padding-bottom: 52px;
-    margin: 0;
-    @include header-4;
-    font-size: 14px;
+    padding: 25px 0 52px;
+    @include header-4-mob2;
     text-align: center;
   }
 }
@@ -386,11 +408,11 @@ p {
   padding: 14px 26px;
   background-color: $color-basic-green;
   @media (max-width: 767px) {
+    @include header-4-mob2;
     width: calc(100% - 40px);
     margin: 220px 20px 22px;
   }
 }
-
 .intro__background {
   position: relative;
   background-image: url("../assets/images/background.jpg");
@@ -504,7 +526,6 @@ p {
     width: 50px;
     height: 50px;
   }
-
   .catalogs__cat-slim {
     position: absolute;
     bottom: 8px;
@@ -546,7 +567,7 @@ p {
   align-self: center;
   @include header-2;
   @media (max-width: 767px) {
-    @include header-6;
+    @include header-2-mob;
   }
 }
 .catalogs__content {
@@ -554,7 +575,7 @@ p {
   padding-top: 40px;
   @include base-text;
   @media (max-width: 767px) {
-    @include base-text-2;
+    @include base-text-mob1;
   }
 }
 .catalogs__link {
@@ -564,13 +585,14 @@ p {
   padding-top: 28px;
   display: flex;
   gap: 28px;
+  color: $color-special-dark-grey-2;
   @include header-4;
   .catalogs__link-icon {
     width: 32px;
     height: 10px;
   }
   @media (max-width: 767px) {
-    @include header-7;
+    @include header-4-mob;
     gap: 15px;
   }
 }
@@ -584,10 +606,9 @@ p {
     padding-top: 45px;
   }
   @media (max-width: 767px) {
-    @include header-8;
+    @include header-1-mob;
   }
 }
-
 .principles__wrapper {
   display: flex;
   flex-direction: row;
@@ -631,8 +652,9 @@ p {
 }
 .principles__content {
   @include base-text;
+  color: $color-special-dark-grey;
   @media (max-width: 767px) {
-    @include base-text-2;
+    @include base-text-mob1;
   }
 }
 .principles__number {
@@ -651,7 +673,6 @@ p {
 /* example start */
 .example {
   position: relative;
-
   @media (max-width: 767px) {
     background-color: $color-basic-grey;
     margin-top: 42px;
@@ -668,7 +689,6 @@ p {
     gap: 70px;
   }
 }
-
 .example__content {
   width: 436px;
   @media (max-width: 1249px) {
@@ -682,19 +702,20 @@ p {
     padding-top: 90px;
   }
   @media (max-width: 767px) {
-    @include header-8;
+    @include header-1-mob;
     padding-top: 27px;
   }
 }
 .example__text {
   padding-top: 146px;
   @include base-text;
+  color: $color-special-dark-grey;
   @media (max-width: 1249px) {
     padding-top: 63px;
   }
   @media (max-width: 767px) {
     padding-top: 33px;
-    @include base-text-2;
+    @include base-text-mob1;
   }
 }
 .example__data {
@@ -729,7 +750,6 @@ p {
   width: 162px;
   height: 74px;
   border-radius: 3px;
-
   .example__legend {
     position: absolute;
     bottom: 0;
@@ -740,20 +760,18 @@ p {
     white-space: nowrap;
     @include base-text;
     @media (max-width: 767px) {
-      @include base-text-3;
+      @include base-text-mob2;
       white-space: wrap;
       text-align: center;
       line-height: 1.1;
     }
   }
-
   .example__label {
     @include header-3;
     @media (max-width: 767px) {
-      @include header-6;
+      @include header-2-mob;
     }
   }
-
   @media (max-width: 767px) {
     margin: 25px 0 0;
     width: 124px;
@@ -772,15 +790,14 @@ p {
   }
   @media (max-width: 767px) {
     padding-top: 26px;
-    @include header-9;
+    @include header-4-mob2;
     flex-direction: row;
   }
-
-  .example__price {
-    padding-right: 108px;
-    @media (max-width: 1249px) {
-      padding-right: 0px;
-    }
+}
+.example__price {
+  padding-right: 108px;
+  @media (max-width: 1249px) {
+    padding-right: 0px;
   }
 }
 .example__scrollbar {
@@ -807,7 +824,6 @@ p {
     display: none;
   }
 }
-
 .example__image-wrapper {
   position: relative;
   right: -81px;
@@ -816,50 +832,48 @@ p {
   @media (max-width: 1249px) {
     right: 0px;
   }
-
-  .example__before-cat-crop {
-    width: 365px;
+}
+.example__before-cat-crop {
+  width: 365px;
+  height: 536px;
+  overflow: hidden;
+  position: absolute;
+  left: 0;
+  top: 0;
+  @media (max-width: 767px) {
+    width: 100vw;
+    height: auto;
+  }
+  .example__before-cat {
     height: 536px;
-    overflow: hidden;
-    position: absolute;
-    left: 0;
-    top: 0;
+    width: 730px;
+    object-fit: cover;
     @media (max-width: 767px) {
       width: 100vw;
       height: auto;
     }
-    .example__before-cat {
-      height: 536px;
-      width: 730px;
-      object-fit: cover;
-      @media (max-width: 767px) {
-        width: 100vw;
-        height: auto;
-      }
-    }
   }
-
-  .example__after-cat-crop {
-    width: 365px;
+}
+.example__after-cat-crop {
+  width: 365px;
+  height: 536px;
+  overflow: hidden;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: -5;
+  @media (max-width: 767px) {
+    width: 0;
+    height: 0;
+  }
+  .example__after-cat {
     height: 536px;
-    overflow: hidden;
-    position: absolute;
-    right: 0;
-    top: 0;
+    width: 730px;
     z-index: -5;
-    @media (max-width: 767px) {
-      width: 0;
-      height: 0;
-    }
-    .example__after-cat {
-      height: 536px;
-      width: 730px;
-      z-index: -5;
-      object-fit: cover;
-      position: absolute;
-      top: 0;
-      right: 0;
-    }
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    right: 0;
   }
 }
 .example__scrollbar-track {
@@ -869,99 +883,90 @@ p {
   border-radius: 3px;
   cursor: pointer;
   background-color: $color-special-grey-1;
-
-  .example__scrollbar-thumb {
+}
+.example__scrollbar-thumb {
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  top: 50%;
+  left: 50%;
+  border: 1px solid $color-special-grey-1;
+  border-radius: 16px;
+  box-shadow: 0px 2px 2px $color-special-grey-1;
+  transform: translate(-50%, -50%);
+  background-color: $color-basic-white;
+  cursor: pointer;
+  &::after {
+    content: "";
+    width: 8px;
+    height: 8px;
     position: absolute;
-    width: 32px;
-    height: 32px;
     top: 50%;
     left: 50%;
-    border: 1px solid $color-special-grey-1;
-    border-radius: 16px;
-    box-shadow: 0px 2px 2px $color-special-grey-1;
+    border-radius: 4px;
     transform: translate(-50%, -50%);
-    background-color: $color-basic-white;
-    cursor: pointer;
-    &::after {
-      content: "";
-      width: 8px;
-      height: 8px;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      border-radius: 4px;
-      transform: translate(-50%, -50%);
-      background-color: $color-basic-green;
-    }
+    background-color: $color-basic-green;
   }
 }
-
 .example__comparison-mobile {
   display: none;
-
-  @media (max-width: 767px) {
+}
+@media (max-width: 767px) {
+  .example__comparison-mobile {
     display: flex;
     flex-direction: column;
     width: 100%;
     overflow: hidden;
-
-    .example__image-wrapper-mobile {
-      display: flex;
-      align-items: center;
-      width: 200%;
-      transition: 0.5s;
-      transform: translate(0%);
-
-      &.example__image-wrapper-mobile-end {
-        transform: translate(-50%);
-      }
-
-      .example__before-cat-crop-mobile,
-      .example__after-cat-crop-mobile {
-        width: 100%;
-        flex-grow: 1;
-      }
-
-      .example__before-cat-mobile,
-      .example__after-cat-mobile {
-        width: 100%;
-        object-fit: contain;
-      }
-    }
-
-    .example__scrollbar-mobile {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 20px;
-
-      .example__before-button-mobile,
-      .example__after-button-mobile {
-        @include header-7();
-      }
-
-      .example__scrollbar-track-mobile {
-        display: flex;
-        align-items: center;
-        padding: 0 5px;
-        width: 84px;
-        height: 14px;
-        border: 1px solid $color-special-grey;
-        border-radius: 6px;
-        background-color: $color-basic-white;
-
-        .example__scrollbar-thumb-mobile {
-          width: 35px;
-          transition: 0.5s;
-          height: 6px;
-          border-radius: 6px;
-          background-color: $color-basic-green;
-          &.example__scrollbar-thumb-mobile-end {
-            transform: translateX(calc(100% + 2px));
-          }
-        }
-      }
-    }
+  }
+  .example__image-wrapper-mobile {
+    display: flex;
+    align-items: center;
+    width: 200%;
+    transition: 0.5s;
+    transform: translate(0%);
+  }
+  .example__image-wrapper-mobile.example__image-wrapper-mobile-end {
+    transform: translate(-50%);
+  }
+  .example__before-cat-crop-mobile,
+  .example__after-cat-crop-mobile {
+    width: 100%;
+    flex-grow: 1;
+  }
+  .example__before-cat-mobile,
+  .example__after-cat-mobile {
+    width: 100%;
+    object-fit: contain;
+  }
+  .example__scrollbar-mobile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+  }
+  .example__before-button-mobile,
+  .example__after-button-mobile {
+    @include header-4-mob;
+  }
+  .example__scrollbar-track-mobile {
+    display: flex;
+    align-items: center;
+    padding: 0 5px;
+    width: 84px;
+    height: 14px;
+    border: 1px solid $color-special-grey;
+    border-radius: 6px;
+    background-color: $color-basic-white;
+  }
+  .example__scrollbar-thumb-mobile {
+    width: 35px;
+    height: 6px;
+    border-radius: 6px;
+    background-color: $color-basic-green;
+    transition: 0.5s;
+  }
+  .example__scrollbar-thumb-mobile.example__scrollbar-thumb-mobile-end {
+    transform: translateX(calc(100% + 2px));
   }
 }
 .example__background {
@@ -973,13 +978,13 @@ p {
   background-color: $color-basic-grey;
   z-index: -10;
 }
-
 /* example end */
 
 /* location start */
 .location {
   position: relative;
   width: 100vw;
+  height: 400px;
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -993,7 +998,6 @@ p {
   left: 0px;
   width: 100vw;
   height: 400px;
-  background-color: rgb(183, 153, 153);
   z-index: -10;
   @media (max-width: 1249px) {
     position: relative;
@@ -1003,8 +1007,6 @@ p {
   }
 }
 .location__marker {
-  width: 106px;
-  height: 106px;
   transform: translate(-50%, -100%);
 }
 .location__wrapper {
@@ -1025,39 +1027,75 @@ p {
   }
   @media (max-width: 767px) {
     height: 114px;
+    padding: 0;
   }
 }
-.location__title {
+.location__title,
+.location__subtitle,
+.location__subtitle-2 {
   @include header-4;
   width: 50%;
   width: 171px;
   @media (max-width: 767px) {
-    @include header-7;
+    @include header-4-mob;
+    width: 40%;
   }
 }
-.location__address {
-  @include base-text;
-  width: 50%;
+.location__subtitle {
+  text-wrap: nowrap;
+}
+.location__subtitle-2 {
+  padding-top: 22px;
   @media (max-width: 1249px) {
-    text-align: right;
+    padding-top: 0;
   }
+}
+
+.location__address-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
   @media (max-width: 767px) {
-    @include base-text-2;
+    @include base-text-mob1;
+    align-items: flex-start;
+  }
+}
+
+.location__address,
+.location__address-line2,
+.location__address-line3 {
+  @include base-text;
+  color: $color-special-dark-grey;
+  text-wrap: nowrap;
+  @media (max-width: 767px) {
+    @include base-text-mob1;
+    text-align: left;
+  }
+}
+
+.location__address-line3 {
+  padding-top: 22px;
+  @media (max-width: 767px) {
+    padding-top: 0;
   }
 }
 /* location end */
 
 /* footer start */
 .footer {
+  background-color: $color-basic-grey;
+}
+.footer__wrapper {
   display: flex;
   justify-content: space-between;
   align-items: center;
   height: 150px;
+  background-color: $color-basic-grey;
   @media (max-width: 767px) {
     height: 236px;
     flex-direction: column;
     justify-content: space-evenly;
-    background-color: $color-basic-grey;
   }
 }
 .footer__media {
@@ -1098,6 +1136,7 @@ p {
 }
 .footer__html-logo-text {
   @include base-text;
+  color: $color-special-dark-grey;
 }
 .footer__vk {
   width: 23px;
@@ -1111,17 +1150,4 @@ p {
   width: 22px;
   height: 22px;
 }
-
 /* footer end */
-
-@media (max-width: 1439px) {
-}
-
-@media (max-width: 1249px) {
-}
-@media (max-width: 767px) {
-}
-@media (max-width: 960px) {
-}
-@media (max-width: 599px) {
-}
